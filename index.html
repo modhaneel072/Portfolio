@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      color: #00ff00;
+      text-align: center;
+      background: black;
+    }
+
+    #welcome {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      font-weight: bold;
+      z-index: 10;
+      text-shadow: 0 0 15px #00ff00;
+    }
+
+    /* Button container */
+    #nav-buttons {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+
+    /* Button styling */
+    .nav-btn {
+      background-color: transparent;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+      text-shadow: 0 0 8px #00ff00;
+    }
+
+    .nav-btn:hover {
+      background-color: #00ff00;
+      color: black;
+      text-shadow: none;
+      transform: scale(1.1);
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="welcome">Welcome to my Portfolio</div>
+
+  <!-- Buttons under welcome -->
+  <div id="nav-buttons">
+    <button class="nav-btn" onclick="location.href='about.html'">About Me</button>
+    <button class="nav-btn" onclick="location.href='projects.html'">Projects</button>
+    <button class="nav-btn" onclick="location.href='resume.html'">Resume</button>
+    <button class="nav-btn" onclick="location.href='contact.html'">Contact</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+  <script>
+    // Scene, Camera, Renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75, window.innerWidth / window.innerHeight, 0.1, 1000
+    );
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Create particles
+    const particles = [];
+    const particleCount = 1000;
+
+    const spriteCanvas = document.createElement("canvas");
+    spriteCanvas.width = 32;
+    spriteCanvas.height = 32;
+    const ctx = spriteCanvas.getContext("2d");
+    ctx.font = "28px monospace";
+    ctx.fillStyle = "#00ff00";
+    ctx.fillText("0", 0, 24);
+    const texture = new THREE.CanvasTexture(spriteCanvas);
+
+    const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
+
+    for (let i = 0; i < particleCount; i++) {
+      const sprite = new THREE.Sprite(material.clone());
+      sprite.position.set(
+        (Math.random() - 0.5) * 100,
+        (Math.random() - 0.5) * 100,
+        (Math.random() - 0.5) * 100
+      );
+      sprite.scale.set(1.5, 1.5, 1.5);
+      scene.add(sprite);
+      particles.push(sprite);
+    }
+
+    camera.position.z = 50;
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      particles.forEach(p => {
+        p.position.y -= 0.2;
+        if (p.position.y < -50) p.position.y = 50;
+
+        if (Math.random() > 0.98) {
+          const chars = "01アカサタナハマヤラワ";
+          ctx.clearRect(0, 0, 32, 32);
+          ctx.fillStyle = "#00ff00";
+          ctx.fillText(chars[Math.floor(Math.random() * chars.length)], 0, 24);
+          p.material.map = new THREE.CanvasTexture(spriteCanvas);
+        }
+      });
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Resize handler
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

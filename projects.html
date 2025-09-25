@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects - Neel Modha</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #dcdcdc;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Project Card */
+    .project-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      padding: 2rem;
+      width: 80%;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 5px solid #00ffcc;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,255,204,0.7);
+    }
+
+    .project-card h2 {
+      margin-top: 0;
+      color: #00ffcc;
+      font-size: 1.8rem;
+    }
+
+    .project-card p {
+      margin-bottom: 1rem;
+    }
+
+    .project-card .role {
+      font-weight: bold;
+      color: #dcdcdc;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Buttons */
+    .back-btn {
+      margin: 2rem;
+      display: inline-block;
+      padding: 8px 15px;
+      background: transparent;
+      border: 2px solid #00ffcc;
+      border-radius: 6px;
+      color: #00ffcc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #00ffcc;
+      color: #000;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Projects</h1>
+    <p>Here’s one of the key projects I’ve managed and contributed to.</p>
+  </header>
+
+  <div class="container">
+    <!-- Project Card -->
+    <div class="project-card">
+      <h2>MARS Rover IAM3D Challenge</h2>
+      <div class="role">Role: Project Manager</div>
+      <p>
+        Led the MARS Rover IAM3D Challenge, coordinating a team to design, 3D model, and program a simulated rover. 
+        Managed project timelines, delegated tasks, and ensured smooth integration of 3D assets with control software.
+      </p>
+      <p>
+        The project involved advanced problem-solving, teamwork, and applying programming skills to simulate realistic rover movements. 
+        It highlights leadership, technical skills, and ability to manage complex engineering challenges.
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center;">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </div>
+</body>
+</html>

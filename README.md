@@ -64,9 +64,10 @@ Portfolio/
 ## 📞 Contact
 
 Reach out for collaboration or inquiries:
-- **Email:** [Your Email]
-- **GitHub:** [Your GitHub Profile]
-- **LinkedIn:** [Your LinkedIn Profile]
+- **Email:** modhaneel072@gmail.com
+- **GitHub:** github.com/modhaneel072
+- **LinkedIn:** linkedin.com/in/neelmodha
+- **Phone:** (319) 491-3668
 
 ---
 

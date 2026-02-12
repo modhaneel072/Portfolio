@@ -1,6 +1,6 @@
 # Neel Modha - Portfolio
 
-A responsive portfolio website showcasing the ASME Mars Rover project and technical expertise in robotics and software engineering.
+A responsive portfolio website showcasing my information.
 
 ## 🚀 Features
 

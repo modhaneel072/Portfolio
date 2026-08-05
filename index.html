@@ -1,163 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Portfolio</title>
-    <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
-        font-family: Arial, sans-serif;
-        color: #00ff00;
-        text-align: center;
-        background: black;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neel Modha</title>
+  <meta name="description" content="Neel Modha — computer science & engineering student at the University of Iowa. Team lead of R.O.V.E.R., an autonomous Mars rover for the ASME IAM3D national competition." />
+  <meta name="author" content="Neel Modha" />
+  <link rel="canonical" href="https://modhaneel072.github.io/Portfolio/" />
 
-      #welcome {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 3rem;
-        font-weight: bold;
-        z-index: 10;
-        text-shadow: 0 0 15px #00ff00;
-      }
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Neel Modha" />
+  <meta property="og:description" content="Computer science & engineering student at the University of Iowa. Team lead of an autonomous Mars rover for the ASME IAM3D national competition." />
+  <meta property="og:url" content="https://modhaneel072.github.io/Portfolio/" />
 
-      /* Button container */
-      #nav-buttons {
-        position: absolute;
-        top: 55%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 10;
-      }
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4c14 0 27 9 27 27 0 16-11 29-28 29C15 60 5 48 5 32 5 14 18 4 32 4z' fill='%2316151a'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-style='italic' font-size='30' fill='%23f7f6f2' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E" />
 
-      /* Button styling */
-      .nav-btn {
-        background-color: transparent;
-        border: 2px solid #00ff00;
-        color: #00ff00;
-        padding: 10px 20px;
-        margin: 10px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: all 0.3s ease-in-out;
-        text-shadow: 0 0 8px #00ff00;
-      }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Neel Modha",
+    "email": "mailto:modhaneel072@gmail.com",
+    "url": "https://modhaneel072.github.io/Portfolio/",
+    "jobTitle": "Computer Science & Engineering Student",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Iowa" },
+    "knowsAbout": ["C++", "Python", "TypeScript", "Embedded Systems", "Robotics", "MATLAB"],
+    "sameAs": [
+      "https://github.com/modhaneel072",
+      "https://linkedin.com/in/NeelModha"
+    ]
+  }
+  </script>
 
-      .nav-btn:hover {
-        background-color: #00ff00;
-        color: black;
-        text-shadow: none;
-        transform: scale(1.1);
-      }
+  <noscript>
+    <style>[data-reveal] { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
+</head>
+<body class="bg-paper font-sans text-ink antialiased">
 
-      canvas {
-        display: block;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="welcome">Welcome to my Portfolio</div>
+  <!-- liquid ink (GPU fluid simulation) under a sheet of glass -->
+  <canvas id="ink" aria-hidden="true"></canvas>
+  <div class="glass" aria-hidden="true"></div>
 
-    <!-- Buttons under welcome -->
-    <div id="nav-buttons">
-      <button class="nav-btn" onclick="location.href='about.html'">
-        About Me
-      </button>
-      <button class="nav-btn" onclick="location.href='projects.html'">
-        Projects
-      </button>
-      <button class="nav-btn" onclick="location.href='resume.html'">
-        Resume
-      </button>
-      <button class="nav-btn" onclick="location.href='contact.html'">
-        Contact
-      </button>
+  <!-- ================= header ================= -->
+  <header class="relative z-10 mx-auto flex max-w-5xl items-baseline justify-between gap-4 px-6 pt-10">
+    <a href="./" class="display whitespace-nowrap text-[22px] font-semibold italic tracking-tight">
+      Neel Modha<span class="text-ultra">.</span>
+    </a>
+    <nav aria-label="Primary" class="flex items-baseline gap-5 text-[15px] text-mid sm:gap-7">
+      <a class="link-ink hidden sm:inline" href="mailto:modhaneel072@gmail.com">Email</a>
+      <a class="link-ink" href="https://github.com/modhaneel072" target="_blank" rel="noopener">GitHub</a>
+      <a class="link-ink" href="https://linkedin.com/in/NeelModha" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="rounded-full border border-line bg-card px-4 py-1.5 text-[14px] font-medium text-ink transition-colors hover:border-ultra hover:text-ultra"
+         href="NeelModha_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main class="relative z-10">
+    <!-- ================= hero ================= -->
+    <section class="paper-wash-left relative mx-auto max-w-5xl px-6 pt-24 md:pt-32" aria-label="Introduction">
+      <!-- faint ink blot, top right -->
+      <svg class="live-ink pointer-events-none absolute -top-4 right-2 w-36 opacity-[0.07] md:w-52" viewBox="0 0 200 200" aria-hidden="true">
+        <path fill="currentColor" d="M100 12c38-8 78 18 84 58 6 42-22 66-14 92 7 24-20 34-48 30-30-4-32-24-58-26-28-2-52-20-50-52C16 78 40 66 52 48 64 30 76 17 100 12z" />
+      </svg>
+
+      <p class="text-[13px] font-semibold uppercase tracking-[0.14em] text-faint" data-reveal>
+        University of Iowa &middot; Computer Science &amp; Engineering &middot; Class of 2029
+      </p>
+
+      <h1 class="display mt-6 max-w-[13ch] text-[clamp(46px,8.5vw,88px)] font-semibold leading-[1.03]" data-reveal>
+        Code that gets its
+        <span class="relative inline-block italic text-ultra">hands dirty<svg class="live-ink absolute -bottom-2 left-0 w-full" viewBox="0 0 220 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 10 C 45 3, 120 2, 217 7" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity="0.32" /><path d="M3 10.5 C 50 5, 130 4, 217 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5" /></svg></span>.
+      </h1>
+
+      <p class="mt-9 max-w-[56ch] text-[17.5px] leading-relaxed text-mid" data-reveal>
+        I lead a 10-person team building <strong class="font-semibold text-ink">R.O.V.E.R.</strong>,
+        an autonomous Mars rover for ASME&rsquo;s IAM3D national competition — all of its software and
+        electrical systems, from navigation to the robotic arm to telemetry, are mine. I work in
+        C++, Python, and TypeScript, happiest where code meets hardware.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[15px] text-mid" data-reveal>
+        <span class="inline-flex items-center gap-2.5">
+          <span class="h-2 w-2 rounded-full bg-moss"></span>
+          Open to engineering internships
+        </span>
+        <span class="text-faint">Iowa, USA</span>
+      </div>
+
+      <p class="ink-hint display mt-14 text-[15px] italic text-faint" data-reveal>
+        P.S. — there&rsquo;s real liquid ink under this glass. Stir it with your cursor; click to splash.
+      </p>
+    </section>
+
+    <!-- ink divider -->
+    <svg class="mx-auto mt-20 w-40 text-ink/25 md:mt-28" viewBox="0 0 160 12" aria-hidden="true">
+      <path d="M2 7 C 30 2, 60 11, 90 6 S 150 4, 158 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+    </svg>
+
+    <!-- ================= projects ================= -->
+    <section id="work" class="mx-auto max-w-5xl px-6 pt-20 md:pt-24" aria-label="Selected work">
+      <div class="flex items-baseline gap-6" data-reveal>
+        <h2 class="display text-4xl font-semibold italic md:text-5xl">Selected work</h2>
+        <span class="hidden h-px flex-1 bg-line sm:block"></span>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        <!-- R.O.V.E.R. — featured -->
+        <article class="rounded-[18px] border border-line bg-white/75 backdrop-blur-sm p-8 md:col-span-2 md:p-11" data-gloss data-reveal>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+            <h3 class="display text-3xl font-semibold md:text-4xl">
+              R.O.V.E.R.
+              <span class="ml-1 font-normal italic text-mid text-[0.6em]">autonomous Mars rover</span>
+            </h3>
+            <span class="tnum text-[14px] text-faint">Aug 2025 – Present</span>
+          </div>
+
+          <p class="mt-2 text-[14.5px] font-medium text-ultra">
+            Team Lead &middot; Software &amp; Electrical &middot; ASME IAM3D national competition
+          </p>
+
+          <div class="mt-7 grid gap-8 md:grid-cols-[1.4fr_1fr]">
+            <ul class="space-y-2.5 text-[15.5px] leading-relaxed text-ink/90">
+              <li class="relative pl-5 before:absolute before:left-0 before:text-faint before:content-['–']">
+                Lead a 10-member engineering team through the complete design, development, and
+                testing of an autonomous rover.
+              </li>
+              <li class="relative pl-5 before:absolute before:left-0 before:text-faint before:content-['–']">
+                Own all software and embedded systems: autonomous navigation, robotic arm control,
+                and telemetry.
+              </li>
+              <li class="relative pl-5 before:absolute before:left-0 before:text-faint before:content-['–']">
+                Coordinate the mechanical and electrical subteams, manage the project timeline, and
+                ensure safety compliance.
+              </li>
+            </ul>
+            <div class="border-line text-[14.5px] leading-7 text-mid md:border-l md:pl-8">
+              <p class="font-semibold uppercase tracking-[0.12em] text-[12px] text-faint">Built with</p>
+              <p class="mt-2">Python &middot; C++ &middot; TypeScript</p>
+              <p>ESP32 &middot; Raspberry Pi</p>
+              <p>SolidWorks</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- personal website -->
+        <article class="rounded-[18px] border border-line bg-white/75 backdrop-blur-sm p-8" data-gloss data-reveal>
+          <div class="flex items-baseline justify-between gap-4">
+            <h3 class="display text-2xl font-semibold">
+              <a class="link-ink" href="https://github.com/modhaneel072/Portfolio" target="_blank" rel="noopener">This website</a>
+            </h3>
+            <span class="tnum text-[14px] text-faint">2026</span>
+          </div>
+          <p class="mt-4 text-[15.5px] leading-relaxed text-mid">
+            Built from scratch with TypeScript, Tailwind CSS, and Vite — including the liquid ink
+            under the page: a real Navier&ndash;Stokes fluid simulation written in raw WebGL2.
+            Deployed to GitHub Pages by CI.
+          </p>
+        </article>
+
+        <!-- python tools -->
+        <article class="rounded-[18px] border border-line bg-white/75 backdrop-blur-sm p-8" data-gloss data-reveal>
+          <div class="flex items-baseline justify-between gap-4">
+            <h3 class="display text-2xl font-semibold">
+              <a class="link-ink" href="https://github.com/modhaneel072" target="_blank" rel="noopener">Python tools</a>
+            </h3>
+            <span class="tnum text-[14px] text-faint">Ongoing</span>
+          </div>
+          <p class="mt-4 text-[15.5px] leading-relaxed text-mid">
+            Small, sharp utilities — calculators, file organizers, data-analysis scripts — built to
+            keep the fundamentals honest: control flow, functions, file I/O.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ink divider -->
+    <svg class="mx-auto mt-20 w-40 text-ink/25 md:mt-28" viewBox="0 0 160 12" aria-hidden="true">
+      <path d="M2 6 C 40 10, 70 2, 100 7 S 150 8, 158 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+    </svg>
+
+    <!-- ================= experience ================= -->
+    <section id="experience" class="paper-wash mx-auto max-w-3xl px-6 pt-20 md:pt-24" aria-label="Experience">
+      <h2 class="display text-4xl font-semibold italic" data-reveal>Experience</h2>
+
+      <div class="mt-10 space-y-11">
+        <article data-reveal>
+          <div class="grid grid-cols-1 items-baseline gap-x-6 sm:grid-cols-[1fr_auto]">
+            <h3 class="text-[17.5px] font-semibold">Material Handler III <span class="font-normal text-mid">— Pearson</span></h3>
+            <span class="tnum text-[14.5px] text-faint">Dec 2025 – Present</span>
+          </div>
+          <p class="mt-0.5 text-[14.5px] text-faint">Marion, Iowa</p>
+          <ul class="mt-3 space-y-2 text-[15.5px] leading-relaxed text-ink/90">
+            <li class="relative pl-5 before:absolute before:left-0 before:text-faint before:content-['–']">
+              Maintain accurate inventory counts across warehouse locations and palletize shipments for dispatch.
+            </li>
+            <li class="relative pl-5 before:absolute before:left-0 before:text-faint before:content-['–']">
+              Operate an electric forklift to move materials through the facility, with a consistent safety record.
+            </li>
+          </ul>
+        </article>
+
+        <article data-reveal>
+          <div class="grid grid-cols-1 items-baseline gap-x-6 sm:grid-cols-[1fr_auto]">
+            <h3 class="text-[17.5px] font-semibold">Assistant Tennis Coach <span class="font-normal text-mid">— Bowman Woods Racquet Center</span></h3>
+            <span class="tnum text-[14.5px] text-faint">Jun – Aug 2024</span>
+          </div>
+          <p class="mt-0.5 text-[14.5px] text-faint">Marion, Iowa</p>
+          <ul class="mt-3 space-y-2 text-[15.5px] leading-relaxed text-ink/90">
+            <li class="relative pl-5 before:absolute before:left-0 before:text-faint before:content-['–']">
+              Coached players ages 10–18 through multiple daily sessions of structured practice.
+            </li>
+            <li class="relative pl-5 before:absolute before:left-0 before:text-faint before:content-['–']">
+              Developed progressive training programs in collaboration with the head coach.
+            </li>
+          </ul>
+        </article>
+
+        <article data-reveal>
+          <div class="grid grid-cols-1 items-baseline gap-x-6 sm:grid-cols-[1fr_auto]">
+            <h3 class="text-[17.5px] font-semibold">Sales Associate <span class="font-normal text-mid">— Dollar Tree</span></h3>
+            <span class="tnum text-[14.5px] text-faint">Jun 2022 – Jul 2023</span>
+          </div>
+          <p class="mt-0.5 text-[14.5px] text-faint">Marion, Iowa</p>
+          <ul class="mt-3 space-y-2 text-[15.5px] leading-relaxed text-ink/90">
+            <li class="relative pl-5 before:absolute before:left-0 before:text-faint before:content-['–']">
+              Handled register operations with accurate transaction records and assisted customers on the floor.
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= education & skills ================= -->
+    <section class="paper-wash mx-auto max-w-3xl px-6 pt-20 md:pt-24" aria-label="Education and skills">
+      <div class="grid gap-14 sm:grid-cols-2 sm:gap-10">
+        <div data-reveal>
+          <h2 class="display text-4xl font-semibold italic">Education</h2>
+          <h3 class="mt-8 text-[17.5px] font-semibold">University of Iowa</h3>
+          <p class="mt-0.5 text-[15px] text-mid">BSE, Computer Science &amp; Engineering</p>
+          <p class="tnum mt-0.5 text-[14.5px] text-faint">Expected May 2029 &middot; GPA 3.5 / 4.0</p>
+          <p class="mt-4 text-[14.5px] leading-relaxed text-mid">
+            Coursework: Engineering Computing, Engineering Problem Solving, Computer Science I,
+            Matrix Algebra, Discrete Structures, Physics, Chemistry.
+          </p>
+        </div>
+
+        <div data-reveal>
+          <h2 class="display text-4xl font-semibold italic">Skills</h2>
+          <dl class="mt-8 space-y-4 text-[15px]">
+            <div>
+              <dt class="font-semibold">Languages</dt>
+              <dd class="mt-0.5 text-mid">C++, Python, TypeScript, HTML/CSS, MATLAB</dd>
+            </div>
+            <div>
+              <dt class="font-semibold">Hardware</dt>
+              <dd class="mt-0.5 text-mid">ESP32/Arduino, Raspberry Pi, SolidWorks</dd>
+            </div>
+            <div>
+              <dt class="font-semibold">Tools</dt>
+              <dd class="mt-0.5 text-mid">Git &amp; GitHub, VS Code, Vite, GitHub Actions</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ink divider -->
+    <svg class="mx-auto mt-20 w-40 text-ink/25 md:mt-28" viewBox="0 0 160 12" aria-hidden="true">
+      <path d="M2 7 C 30 2, 60 11, 90 6 S 150 4, 158 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+    </svg>
+
+    <!-- ================= contact ================= -->
+    <section id="contact" class="paper-wash mx-auto max-w-3xl px-6 pt-20 md:pt-24" aria-label="Contact">
+      <h2 class="display text-[clamp(38px,6vw,56px)] font-semibold leading-tight" data-reveal>
+        Let&rsquo;s put something<br /><span class="italic text-ultra">in motion.</span>
+      </h2>
+      <p class="mt-6 max-w-[52ch] text-[16.5px] leading-relaxed text-mid" data-reveal>
+        The fastest way to reach me is email — I&rsquo;m happy to talk about internships, robotics,
+        or engineering teams worth joining.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-4" data-reveal>
+        <a class="display link-ink text-[clamp(20px,3.4vw,27px)] font-semibold italic" href="mailto:modhaneel072@gmail.com">modhaneel072@gmail.com</a>
+        <button class="cursor-pointer rounded-full border border-line bg-card px-4 py-1.5 text-[13.5px] text-mid transition-colors hover:border-ultra hover:text-ultra" type="button" data-copy-email>Copy</button>
+      </div>
+      <p class="mt-6 flex flex-wrap gap-x-6 gap-y-1 text-[15px] text-mid" data-reveal>
+        <a class="link-ink" href="https://github.com/modhaneel072" target="_blank" rel="noopener">GitHub</a>
+        <a class="link-ink" href="https://linkedin.com/in/NeelModha" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="link-ink tnum" href="tel:+13194913668">(319) 491-3668</a>
+        <a class="link-ink" href="NeelModha_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </p>
+    </section>
+  </main>
+
+  <!-- ================= footer ================= -->
+  <footer class="relative z-10 mx-auto mt-24 max-w-5xl px-6">
+    <div class="flex flex-wrap items-baseline justify-between gap-3 border-t border-line py-8 text-[14px] text-faint">
+      <span>© <span id="year">2026</span> Neel Modha</span>
+      <span>Built by hand — TypeScript, Tailwind CSS, and liquid ink under glass.</span>
     </div>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
-    <script>
-      // Scene, Camera, Renderer
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-      );
-      const renderer = new THREE.WebGLRenderer({ alpha: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
-
-      // Create particles
-      const particles = [];
-      const particleCount = 1000;
-
-      const spriteCanvas = document.createElement("canvas");
-      spriteCanvas.width = 32;
-      spriteCanvas.height = 32;
-      const ctx = spriteCanvas.getContext("2d");
-      ctx.font = "28px monospace";
-      ctx.fillStyle = "#00ff00";
-      ctx.fillText("0", 0, 24);
-      const texture = new THREE.CanvasTexture(spriteCanvas);
-
-      const material = new THREE.SpriteMaterial({
-        map: texture,
-        transparent: true,
-      });
-
-      for (let i = 0; i < particleCount; i++) {
-        const sprite = new THREE.Sprite(material.clone());
-        sprite.position.set(
-          (Math.random() - 0.5) * 100,
-          (Math.random() - 0.5) * 100,
-          (Math.random() - 0.5) * 100
-        );
-        sprite.scale.set(1.5, 1.5, 1.5);
-        scene.add(sprite);
-        particles.push(sprite);
-      }
-
-      camera.position.z = 50;
-
-      function animate() {
-        requestAnimationFrame(animate);
-
-        particles.forEach((p) => {
-          p.position.y -= 0.2;
-          if (p.position.y < -50) p.position.y = 50;
-
-          if (Math.random() > 0.98) {
-            const chars = "01アカサタナハマヤラワ";
-            ctx.clearRect(0, 0, 32, 32);
-            ctx.fillStyle = "#00ff00";
-            ctx.fillText(
-              chars[Math.floor(Math.random() * chars.length)],
-              0,
-              24
-            );
-            p.material.map = new THREE.CanvasTexture(spriteCanvas);
-          }
-        });
-
-        renderer.render(scene, camera);
-      }
-      animate();
-
-      // Resize handler
-      window.addEventListener("resize", () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    </script>
-  </body>
+  <script type="module" src="/src/main.ts"></script>
+</body>
 </html>

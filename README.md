@@ -1,76 +1,58 @@
-# Neel Modha - Portfolio
+# Neel Modha — Personal site
 
-A responsive portfolio website showcasing my information.
+> **Live:** [modhaneel072.github.io/Portfolio](https://modhaneel072.github.io/Portfolio/)
 
-## 🚀 Features
+Personal site built with **TypeScript, Tailwind CSS 4, and Vite**. Under the page is
+**real liquid ink** — a GPU Navier–Stokes fluid simulation (semi-Lagrangian advection,
+Jacobi pressure projection, vorticity confinement) written from scratch in raw WebGL2.
+The cursor stirs the liquid, clicks splash pigment, ambient droplets keep it moving,
+and a glass layer with reflection streaks + specular shading makes the ink read as
+liquid under glass. Pigment renders subtractively, so it behaves like ink on paper
+rather than neon on black. Type pairs Fraunces with Schibsted Grotesk — self-hosted.
 
-- **Responsive Design** - Works seamlessly on all devices
-- **Modern UI** - Sleek gradient backgrounds with cyan accents
-- **Featured Project** - ASME IAM3D Mars Rover with full technical details
-- **Clean Navigation** - Easy access to all sections
+## Develop
 
-## 📁 Project Structure
-
-```
-Portfolio/
-├── index.html          # Home page with welcome screen and navigation
-├── about.html          # About me section
-├── projects.html       # Project showcase with filtering
-├── resume.html         # Resume page
-├── contact.html        # Contact information
-├── NeelModha_Resume.pdf # PDF resume
-└── README.md           # This file
+```bash
+npm install
+npm run dev        # local dev server
+npm run build      # type-check + production build to dist/
+npm run preview    # serve the production build locally
 ```
 
-## 📄 Pages
+## Deploy
 
-### Home (index.html)
-- Welcome screen with navigation menu
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and
+publishes `dist/` to GitHub Pages.
 
-### About (about.html)
-- Background and technical skills
+**One-time setup:** in the repo settings on GitHub, set
+*Settings → Pages → Build and deployment → Source* to **GitHub Actions**.
 
-### Projects (projects.html)
-- **ASME IAM3D Mars Rover (R.O.V.E.R.)**
-  - Team Lead & Software/Electrical Engineer
-  - Autonomous navigation and robotic arm systems
-  - Tech: Python, C++, TypeScript, Embedded Systems
-  - 10-member team, August 2025 – Present
+## Structure
 
-### Resume (resume.html)
-- Professional experience and education
+```
+├── index.html                  # Page content (Vite entry)
+├── src/
+│   ├── main.ts                 # Wiring: fluid, gloss, reveals, copy-email
+│   ├── fluid.ts                # WebGL2 Navier–Stokes fluid solver + ink display
+│   ├── gloss.ts                # Pointer-tracked specular highlight on cards
+│   └── style.css               # Tailwind theme tokens + custom layers
+├── public/
+│   ├── fonts/                  # Fraunces + Schibsted Grotesk (variable, self-hosted)
+│   ├── NeelModha_Resume.pdf
+│   └── 404.html
+└── .github/workflows/deploy.yml
+```
 
-### Contact (contact.html)
-- Contact information and social links
+## Notes
 
-## 🎨 Design
+- Fluid: taps splash on touch devices; removed entirely under `prefers-reduced-motion` or where WebGL2 float rendering is unavailable (the page works without it)
+- The render loop sleeps ~14 s after the last splash and wakes on interaction
+- Works without JavaScript (content is plain HTML; effects are enhancements)
+- Print stylesheet — the page prints cleanly
+- No third-party requests at runtime; fonts are self-hosted
 
-- **Color Scheme:** Dark gradient with cyan (#00ffcc) accents
-- **Typography:** Segoe UI and system fonts
-- **Animations:** Smooth transitions and hover effects
-- **Responsive:** Mobile-first design for all screen sizes
+## Contact
 
-## 🛠️ Technologies Used
-
-- HTML5, CSS3, JavaScript
-- No external dependencies
-- Lightweight and fast
-
-## 📱 Responsive Design
-
-- **Mobile:** Single-column layout
-- **Tablet & Desktop:** Optimized responsive grid
-
-## 📞 Contact
-
-Reach out for collaboration or inquiries:
 - **Email:** modhaneel072@gmail.com
-- **GitHub:** github.com/modhaneel072
-- **LinkedIn:** linkedin.com/in/neelmodha
-- **Phone:** (319) 491-3668
-
----
-
-**Last Updated:** February 6, 2026
-
-Made by Neel Modha
+- **GitHub:** [github.com/modhaneel072](https://github.com/modhaneel072)
+- **LinkedIn:** [linkedin.com/in/NeelModha](https://linkedin.com/in/NeelModha)

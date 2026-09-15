@@ -250,7 +250,7 @@ body {
   );
 }
 
-@media (max-width: 639px) {
+@media (max-width: 1279px) {
   .paper-wash::before,
   .paper-wash-left::before {
     inset: -3rem 0;

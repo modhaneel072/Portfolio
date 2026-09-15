@@ -51,6 +51,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -247,6 +248,13 @@ body {
     rgba(247, 246, 242, 0.5) 58%,
     transparent 86%
   );
+}
+
+@media (max-width: 639px) {
+  .paper-wash::before,
+  .paper-wash-left::before {
+    inset: -3rem 0;
+  }
 }
 
 /* the ink hint only makes sense where the ink cursor exists */
